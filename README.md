@@ -1,9 +1,4 @@
-```diff
-+ This is a forked project of Paul Bakaus's DOM to Image project. 
-This forked repo consists minor changes to bypass font rendering 
-and thus avoiding several XHR requests and associated issues like CORS.
-Tested on Chrome, Firefax and Safari.
-```
+#### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `This is a forked project of Paul Bakaus's DOM to Image project. This forked repo consists minor changes to bypass font rendering and thus avoiding several XHR requests and associated issues like CORS. Tested on Chrome, Firefax and Safari.`
 
 # DOM to Image
 
