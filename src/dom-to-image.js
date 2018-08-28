@@ -57,7 +57,6 @@
             .then(function (node) {
                 return cloneNode(node, options.filter, true);
             })
-            .then(embedFonts)
             .then(inlineImages)
             .then(applyOptions)
             .then(function (clone) {
@@ -231,8 +230,10 @@
                 copyStyle(window.getComputedStyle(original), clone.style);
 
                 function copyStyle(source, target) {
-                    if (source.cssText) target.cssText = source.cssText;
-                    else copyProperties(source, target);
+                    if (source.cssText) {
+                        target.cssText = source.cssText;
+                        target.font = source.font; // here, we re-assign the font prop.
+                    } else copyProperties(source, target);
 
                     function copyProperties(source, target) {
                         util.asArray(source).forEach(function (name) {
@@ -307,16 +308,6 @@
                 });
             }
         }
-    }
-
-    function embedFonts(node) {
-        return fontFaces.resolveAll()
-            .then(function (cssText) {
-                var styleNode = document.createElement('style');
-                node.appendChild(styleNode);
-                styleNode.appendChild(document.createTextNode(cssText));
-                return node;
-            });
     }
 
     function inlineImages(node) {
