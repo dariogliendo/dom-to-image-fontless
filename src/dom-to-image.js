@@ -6,6 +6,11 @@
     var fontFaces = newFontFaces();
     var images = newImages();
 
+    // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+    // Edge 20+
+    var isEdge = !isIE && !!window.StyleMedia;
+
     // Default impl options
     var defaultOptions = {
         // Default is to fail on error, no placeholder
@@ -447,7 +452,11 @@
                     resolve(image);
                 };
                 image.onerror = reject;
-                image.src = encodeURI(uri);
+                if (isIE || isEdge) {
+                    image.src = encodeURI(uri)
+                } else {
+                    image.src = uri;
+                }
             });
         }
 
