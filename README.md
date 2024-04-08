@@ -1,4 +1,4 @@
-#### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `This is a forked repo of Paul Bakaus's DOM to Image project. This forked repo consists minor changes to bypass font rendering which is supposed to eliminate XHR requests and resolves associated issues like CORS. Tested on Chrome, Firefox, Edge and Safari.`
+#### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `This repo is forked from https://github.com/venkat4541/dom-to-image which already is a fork from the original dom-to-image. I *HIGHLY* recommend using that one instead of this, which is just made for the purpose of changing the package name for a very particular use case.`
 
 # DOM to Image
 
